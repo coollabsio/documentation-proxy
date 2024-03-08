@@ -2,7 +2,8 @@ const Fastify = require('fastify');
 const server = Fastify();
 server.register(require('@fastify/http-proxy'), {
     upstream: 'https://docs.coolify.io/',
-    prefix: '/',
+    prefix: '/docs', // Set the prefix to '/docs'
+    rewritePrefix: '', // Ensure the path isn't rewritten
 });
 
 server.listen({ host: '0.0.0.0', port: 3000 });
