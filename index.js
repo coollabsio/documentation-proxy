@@ -6,9 +6,9 @@ const server = Fastify();
 //     rewritePrefix: '', // Ensure the path isn't rewritten
 // });
 server.register(require('@fastify/http-proxy'), {
-    upstream: 'https://coollabstechnologiesbt.mintlify.dev/docs',
+    upstream: 'https://coollabstechnologiesbt.mintlify.dev',
     prefix: '/', // Set the prefix to '/docs'
-    rewritePrefix: '', // Ensure the path isn't rewritten
+    rewritePrefix: '/docs', // Ensure the path isn't rewritten
 });
 
 server.listen({ host: '0.0.0.0', port: 3000 });
