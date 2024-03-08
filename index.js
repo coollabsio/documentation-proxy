@@ -2,11 +2,7 @@ const Fastify = require('fastify');
 const server = Fastify();
 console.log('hello')
 server.register(require('@fastify/http-proxy'), {
-    upstream: 'https://coolify.io/docs',
-    prefix: '/docs',
-});
-server.register(require('@fastify/http-proxy'), {
-    upstream: 'https://coolify.io/',
+    upstream: 'https://docs.coolify.io/',
     prefix: '/',
 });
 
