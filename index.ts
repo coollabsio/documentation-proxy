@@ -5,7 +5,7 @@ Bun.serve({
         try {
             const url = new URL(req.url);
             if (url.pathname.startsWith("/docs")) {
-                const DOCS_URL = "https://docs.coolify.io";
+                const DOCS_URL = "https://coolify.io/docs";
                 const CUSTOM_URL = "https://coolify.io";
                 let url = new URL(req.url);
                 url.hostname = DOCS_URL;
