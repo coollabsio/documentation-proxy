@@ -2,8 +2,12 @@ const Fastify = require('fastify');
 const server = Fastify();
 
 server.register(require('@fastify/http-proxy'), {
-    upstream: 'https://coolify.io/docs',
-    prefix: '/docs',
+    upstream: 'https://coolify.io/docs/',
+    prefix: '/docs/',
+});
+server.register(require('@fastify/http-proxy'), {
+    upstream: 'https://coolify.io/',
+    prefix: '/',
 });
 
 server.listen({ port: 3000 });
