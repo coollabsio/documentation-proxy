@@ -5,19 +5,26 @@ Bun.serve({
         try {
             const url = new URL(req.url);
             if (url.pathname.startsWith("/docs")) {
+                console.log(req.url)
                 const DOCS_URL = "https://coolify.io/docs";
-                const CUSTOM_URL = "https://coolify.io";
-                let url = new URL(req.url);
-                url.hostname = DOCS_URL;
-                let proxyRequest = new Request(req);
-                proxyRequest.headers.set("Host", DOCS_URL);
-                proxyRequest.headers.set("X-Forwarded-Host", CUSTOM_URL);
-                proxyRequest.headers.set('X-Forwarded-Proto', 'https');
-                return await fetch(proxyRequest);
+                const proxyUrl = new URL(DOCS_URL);
+                const headers = new Headers(req.headers);
+
+                headers.set("Host", DOCS_URL);
+                headers.set("X-Forwarded-Host", url.hostname);
+                headers.set("X-Forwarded-Proto", url.protocol.replace(":", ""));
+                console.log(proxyUrl)
+                return fetch(proxyUrl.href, {
+                    method: req.method,
+                    headers: headers,
+                    body: req.method !== "GET" && req.method !== "HEAD" ? req.body : undefined,
+                    redirect: req.redirect,
+                  });
             }
-            return await fetch(req);
+            return new Response("Not a proxied request", { status: 404 });
         } catch (e) {
-            return await fetch(req);
+            console.log(e)
+            return new Response("Not a proxied request", { status: 404 });
         }
     },
 });
