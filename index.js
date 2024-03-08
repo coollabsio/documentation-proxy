@@ -7,7 +7,7 @@ const server = Fastify();
 // });
 server.register(require('@fastify/http-proxy'), {
     upstream: 'https://coollabstechnologiesbt.mintlify.dev/',
-    prefix: '/docs', // Set the prefix to '/docs'
+    prefix: '/', // Set the prefix to '/docs'
     rewritePrefix: '', // Ensure the path isn't rewritten
 });
 
