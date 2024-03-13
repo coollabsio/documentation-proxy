@@ -1,6 +1,3 @@
-FROM node:lts-alpine
-WORKDIR /app
-COPY . .
+FROM caddy:2-alpine
+COPY Caddyfile /etc/caddy/Caddyfile
 EXPOSE 3000
-RUN npm i
-CMD npm run start
