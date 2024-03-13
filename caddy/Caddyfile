@@ -1,8 +1,14 @@
+
+
 :3000 {
-	handle_path /* {
-		reverse_proxy https://coolify.io
+	handle /* {
+		reverse_proxy https://coolify.io {
+			header_up Host coolify.io
+		}
 	}
-	handle_path /docs* {
-		reverse_proxy https://coollabstechnologiesbt.mintlify.dev/docs
+	handle /docs* {
+		reverse_proxy https://coollabstechnologiesbt.mintlify.dev {
+			header_up Host coollabstechnologiesbt.mintlify.dev
+		}
 	}
 }
