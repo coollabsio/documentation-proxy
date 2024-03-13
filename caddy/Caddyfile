@@ -2,7 +2,7 @@
 	handle_path /* {
 		reverse_proxy https://coolify.io
 	}
-	handle_path /docs/* {
-		reverse_proxy https://coollabstechnologiesbt.mintlify.dev
+	handle_path /docs* {
+		reverse_proxy https://coollabstechnologiesbt.mintlify.dev/docs
 	}
 }
