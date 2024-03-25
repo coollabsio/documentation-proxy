@@ -11,4 +11,9 @@
 			header_up Host coollabstechnologiesbt.mintlify.dev
 		}
 	}
+	handle /kb* {
+		reverse_proxy https://test.coolify.io/docs/knowledge-base/docs/knowledge-base {
+			header_up Host coollabstechnologiesbt.mintlify.dev
+		}
+	}
 }
