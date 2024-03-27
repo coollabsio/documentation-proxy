@@ -6,7 +6,7 @@
 	}
 	handle /* {
 		reverse_proxy https://v4.coolify.io {
-			header_up Host coolify.io
+			header_up Host v4.coolify.io
 		}
 	}
 }
