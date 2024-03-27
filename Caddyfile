@@ -5,7 +5,7 @@
 		}
 	}
 	handle /* {
-		reverse_proxy https://landing-pages.coollabs.io {
+		reverse_proxy https://v4.coolify.io {
 			header_up Host coolify.io
 		}
 	}
